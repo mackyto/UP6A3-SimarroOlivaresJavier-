@@ -15,5 +15,16 @@
  */
 
 abstract public class Atraccion {
+
+    private String nombre;
+    private int capacidadMaxima, tiempoRecorrido, nivelAdrenalina;
+
+    public abstract double calculaPrecio();
+
+    public abstract void realizarMantenimiento();
+
+    public void iniciarAtraccion();
+        
+    public void detenerAtraccion();
     
 }

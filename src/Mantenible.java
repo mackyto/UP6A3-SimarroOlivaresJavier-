@@ -14,4 +14,8 @@
 
 public interface Mantenible {
     
+    public void revisarSeguridad();
+    
+    public void registrarIncidencia(String incidencia);
+    
 }
