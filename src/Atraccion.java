@@ -124,7 +124,7 @@ public abstract class Atraccion implements Mantenible{
     
     
     /**
-     * Comprovación de parametros entero positivo.
+     * Comprovación de parametros numero entero positivo.
      * @param valor Númeroa a ser chequeado.
      * @return boleana true si cumple los requisitos.
      * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
@@ -137,6 +137,20 @@ public abstract class Atraccion implements Mantenible{
         }
     }
 
+        /**
+     * Comprovación de parametros numero decimal positivo.
+     * @param valor Númeroa a ser chequeado.
+     * @return boleana true si cumple los requisitos.
+     * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
+     */
+    public boolean enteroPositivo(double valor) throws ErrorDatos {
+        if (valor > 0){
+            return true;
+        }else{
+            throw new ErrorDatos("Valor decimal cero o negativo"); 
+        }
+    }
+    
     /**
      * Comprobación de cadena no nula ni vacía.
      * @param texto cadena de texto a ser verificada. 

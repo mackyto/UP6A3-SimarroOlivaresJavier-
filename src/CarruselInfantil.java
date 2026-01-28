@@ -27,11 +27,13 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
     public CarruselInfantil (int edadMaxima,int numeroFiguras, String nombre, int capacidadMaxima,int tiempoRecorrido,int nivelAdrenalina) throws ErrorDatos{
         
         super(nombre, capacidadMaxima, tiempoRecorrido, nivelAdrenalina);
-        if(super.enteroPositivo(edadMaxima))
-        this.edadMaxima = edadMaxima;
-        if(super.enteroPositivo(numeroFiguras))
-        this.numeroFiguras = numeroFiguras;
         
+        if(super.enteroPositivo(edadMaxima))
+            this.edadMaxima = edadMaxima;
+
+        if(super.enteroPositivo(numeroFiguras))
+            this.numeroFiguras = numeroFiguras;
+
     }
 
     public int getEdadMaxima() {
@@ -48,9 +50,7 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
 
     public void setNumeroFiguras(int numeroFiguras) {
         this.numeroFiguras = numeroFiguras;
-    }
-    
-    
+    }    
     
     @Override
     public double calculaPrecio(){
@@ -61,8 +61,5 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
     public void realizarMantenimiento(){
         
     }
-    
-            
-    
     
 }

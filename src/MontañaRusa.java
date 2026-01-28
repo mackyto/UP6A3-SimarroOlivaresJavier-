@@ -15,4 +15,14 @@
 
 public class MontañaRusa extends Atraccion implements Mantenible {
     
+    private double alturaMaxima, longitudRecorrido;
+    
+    public MontañaRusa (double alturaMaxima, double longitudRecorrido, String nombre, int capacidadMaxima,int tiempoRecorrido,int nivelAdrenalina) throws ErrorDatos{
+    
+        
+        
+    }    
+        
+        
+        
 }
