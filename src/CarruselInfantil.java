@@ -62,4 +62,15 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
         
     }
     
+    @Override
+    public void revisarSeguridad(){
+        
+    }
+    
+    @Override
+    public void registrarIncidencia(String incidencia){
+        
+    }
+    
+    
 }

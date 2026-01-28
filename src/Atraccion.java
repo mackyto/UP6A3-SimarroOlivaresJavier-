@@ -113,6 +113,8 @@ public abstract class Atraccion implements Mantenible{
     public abstract double calculaPrecio();
 
     public abstract void realizarMantenimiento();
+    
+    
 
     public void iniciarAtraccion(){
         this.funcionando = true;
