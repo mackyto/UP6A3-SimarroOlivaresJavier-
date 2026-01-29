@@ -73,7 +73,7 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
     }
 
     /**
-     * Lanzamiento delmensaje de log 'Se ha realizado el mantenimiento, a la atracción this hoy.
+     * Lanzamiento del mensaje de log 'Se ha realizado el mantenimiento, a esta atracción, hoy.
      */
     @Override
     public void realizarMantenimiento(){

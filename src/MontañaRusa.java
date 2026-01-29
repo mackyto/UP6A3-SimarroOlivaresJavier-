@@ -42,11 +42,22 @@ public class MontañaRusa extends Atraccion implements Mantenible {
         
     }
     
+    /**
+     * Devuelve el precio del ticket para este tipode atración
+     * @return doubleen €
+     * @throws ErrorDatos sin usoen esta version 
+     */
    @Override
     public double calculaPrecio() throws ErrorDatos {
         return this.PRECIO;
     }
 
+    /**
+     * Metodo sobrecargado
+     * @param temporadaAlta
+     * @return
+     * @throws ErrorDatos 
+     */
     public double calculaPrecio(boolean temporadaAlta) throws ErrorDatos{
         
         if (temporadaAlta){
@@ -55,11 +66,15 @@ public class MontañaRusa extends Atraccion implements Mantenible {
             throw new ErrorDatos("Parametro temporadaAlta erroneo o false");
         }
     }
-    
+    /**
+     * Lanzamiento del mensaje de log 'Se ha realizado el mantenimiento, a esta atracción, hoy.
+     */
     @Override
     public void realizarMantenimiento(){
         System.out.printf("A la atracción %s se le ha realizado mantenimiento el dia %s%n", super.getNombre(), LocalDate.now());
     }
+    
+    
     
     
         
