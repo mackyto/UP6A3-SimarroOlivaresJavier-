@@ -1,3 +1,6 @@
+
+import java.time.LocalDate;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -37,16 +40,27 @@ public class MontañaRusa extends Atraccion implements Mantenible {
         if(super.enteroPositivo(longitudRecorrido))
             this.longitudRecorrido = longitudRecorrido;
         
-    }    
+    }
     
-    public double calculaPrecio(){
+   @Override
+    public double calculaPrecio() throws ErrorDatos {
         return this.PRECIO;
     }
 
-    public void realizarMantenimiento(){
-    
+    public double calculaPrecio(boolean temporadaAlta) throws ErrorDatos{
+        
+        if (temporadaAlta){
+            return this.PRECIO;
+        }else{
+            throw new ErrorDatos("Parametro temporadaAlta erroneo o false");
+        }
     }
     
-        
+    @Override
+    public void realizarMantenimiento(){
+        System.out.printf("A la atracción %s se le ha realizado mantenimiento el dia %s%n", super.getNombre(), LocalDate.now());
+    }
+    
+    
         
 }

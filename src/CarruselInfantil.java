@@ -1,3 +1,6 @@
+
+import java.time.LocalDate;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -44,32 +47,62 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
         this.edadMaxima = edadMaxima;
     }
 
+    /**
+     * Getter numeroFiguras
+     * @return int
+     */
     public int getNumeroFiguras() {
         return numeroFiguras;
     }
-
+    
+    /**
+     * Setter numeroFiguras
+     * @param numeroFiguras 
+     */
     public void setNumeroFiguras(int numeroFiguras) {
         this.numeroFiguras = numeroFiguras;
     }    
     
+    /**
+     * Método Calcularprecio 
+     * @return double en €
+     */
     @Override
     public double calculaPrecio(){
         return this.PRECIO;
     }
 
+    /**
+     * Lanzamiento delmensaje de log 'Se ha realizado el mantenimiento, a la atracción this hoy.
+     */
     @Override
     public void realizarMantenimiento(){
-        
+        System.out.printf("A la atracción %s se le ha realizado mantenimiento el dia %s\n\n", super.getNombre(), LocalDate.now());        
     }
     
+    /**
+     * 
+     */
     @Override
     public void revisarSeguridad(){
         
     }
-    
+    /**
+     * 
+     * @param incidencia 
+     */
     @Override
     public void registrarIncidencia(String incidencia){
         
+    }
+    
+    /**
+     * 
+     * Inicia la reproducción del canal de musica infantil en la atracción y registra el log.
+     * 
+     */
+    public void activarMusicaInfantil() {
+        System.out.printf("Se ha iniciado el canal de musica infantil en la atrcción %s\n\n", super.getNombre());
     }
     
     

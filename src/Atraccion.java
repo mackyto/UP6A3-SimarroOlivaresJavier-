@@ -110,7 +110,7 @@ public abstract class Atraccion implements Mantenible{
     }
    
     
-    public abstract double calculaPrecio();
+    public abstract double calculaPrecio() throws ErrorDatos;
 
     public abstract void realizarMantenimiento();
     
