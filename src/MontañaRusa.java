@@ -74,7 +74,17 @@ public class MontañaRusa extends Atraccion implements Mantenible {
         System.out.printf("A la atracción %s se le ha realizado mantenimiento el dia %s%n", super.getNombre(), LocalDate.now());
     }
     
+    @Override
+    public void revisarSeguridad(){
+        
+        
+    }
     
+    @Override
+    public void registrarIncidencia(String incidencia){
+        
+        
+    }
     
     
         

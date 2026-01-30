@@ -132,11 +132,9 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
      */
     public boolean enteroPositivo(int valor) throws ErrorDatos {
-        if (valor > 0){
-            return true;
-        }else{
-            throw new ErrorDatos("Valor entero cero o negativo"); 
-        }
+
+        return this.enteroPositivo(valor, "Valor entero, cero o negativo");
+        
     }
 
         /**
@@ -146,11 +144,7 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
      */
     public boolean enteroPositivo(double valor) throws ErrorDatos {
-        if (valor > 0){
-            return true;
-        }else{
-            throw new ErrorDatos("Valor decimal cero o negativo"); 
-        }
+        return this.enteroPositivo(valor, "Valor decimal, cero o negativo");
     }
     
     /**
@@ -160,11 +154,53 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
      */
     public boolean stringNoNulo(String texto) throws ErrorDatos {
+        return this.stringNoNulo(texto, "Valor de cadena nulo o vacío");
+       
+    }
+
+        /**
+     * Comprovación de parametros numero entero positivo, sobrecargado.
+     * @param valor Númeroa a ser chequeado.
+     * @param mensaje mensaje a devolver a la clase Exception (ErrorDatos).
+     * @return boleana true si cumple los requisitos.
+     * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
+     */
+    public static boolean enteroPositivo(int valor, String mensaje) throws ErrorDatos {
+        if (valor > 0){
+            return true;
+        }else{
+            throw new ErrorDatos(mensaje); 
+        }
+    }
+
+        /**
+     * Comprovación de parametros numero decimal positivo, sobrecargado.
+     * @param valor Númeroa a ser chequeado.
+     * @param mensaje mensaje a devolver a la clase Exception (ErrorDatos).
+     * @return boleana true si cumple los requisitos.
+     * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
+     */
+    public static boolean enteroPositivo(double valor, String mensaje) throws ErrorDatos {
+        if (valor > 0){
+            return true;
+        }else{
+            throw new ErrorDatos("Valor decimal cero o negativo"); 
+        }
+    }
+    
+    /**
+     * Comprobación de cadena no nula, ni vacía sobrecargada.
+     * @param texto cadena de texto a ser verificada.
+     * @param mensaje mensaje a devolver a la clase Exception (ErrorDatos).
+     * @return boleana si cumple los requisitos.
+     * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
+     */
+    public static boolean stringNoNulo(String texto, String mensaje) throws ErrorDatos {
         if (texto == null || texto.isEmpty()){
             return true;
         }else{
             throw new ErrorDatos("Valor de cadena nulo o vacío"); 
         }        
     }
-
+    
 }
