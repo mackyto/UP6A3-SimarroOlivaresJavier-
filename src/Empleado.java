@@ -140,13 +140,20 @@ public class Empleado {
         }else{throw new ErrorDatos(mensaje);}
     }
             
-    
+    /**
+     * Imprime log de fecha y hora de inicialización de jornada.
+     * no tiene parametros de entrada ni de salida.
+     */
     public void ficharEntrada(){
         
         System.out.println(String.format("El empleado %s.\nCon DNI: %s a comenzado su jornada %s.\nA las %s", this.nombre, this.dni, LocalDate.now(), LocalTime.now()));
         
     }
-            
+    
+    /**
+     * Imprime log de fecha y hora de finalización de jornada.
+     * no tiene parametros de entrada ni de salida.
+     */
     public void ficharSalida(){
         
         System.out.println(String.format("El empleado %s.\nCon DNI: %s a terminado su jornada %s.\nA las %s", this.nombre, this.dni, LocalDate.now(), LocalTime.now()));
@@ -154,11 +161,15 @@ public class Empleado {
     }
 
 
-    
-    public void asignarAtraccion(Atraccion a
-    
-    
-    
+    /**
+     * Asigna una atraccon (nombre) al puesto del trabajador.
+     * @param atracion 
+     */
+    public void asignarAtraccion(Atraccion atracion){
+        
+        this.puesto = atracion.getNombre();
+        
+    }
     
             
 }

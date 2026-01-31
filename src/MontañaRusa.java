@@ -67,6 +67,7 @@ public class MontañaRusa extends Atraccion implements Mantenible {
         }
     }
     /**
+     * realizarMantenimiento indica que se ha rrealizado el mantenimiento.
      * Lanzamiento del mensaje de log 'Se ha realizado el mantenimiento, a esta atracción, hoy.
      */
     @Override
@@ -74,14 +75,23 @@ public class MontañaRusa extends Atraccion implements Mantenible {
         System.out.printf("A la atracción %s se le ha realizado mantenimiento el dia %s%n", super.getNombre(), LocalDate.now());
     }
     
+    /**
+     * revisarSeguridad indica que se ha revisado la seguridad de la atracción.
+     * Lanzamiento del mensaje de log 'Se ha revisado la seguridad, a esta atracción, hoy. 
+     */
     @Override
     public void revisarSeguridad(){
-        
+        System.out.printf("Se ha revisado la seguridadc de la atracción %s el dia %s%n", super.getNombre(), LocalDate.now());        
         
     }
     
+    /**
+     * registrarIncidencia
+     * @param incidencia String
+     */
     @Override
     public void registrarIncidencia(String incidencia){
+        
         
         
     }

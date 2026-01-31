@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -15,4 +19,76 @@
 
 public class ZonaParque {
     
+    List<Atraccion> listaAtracciones;
+    
+    /**
+     * Constructor con el parametro lista de atracciones
+     * @param listaAtracciones 
+     */
+    public ZonaParque (List<Atraccion> listaAtracciones){
+        
+        this.listaAtracciones = listaAtracciones;
+        
+    }
+    
+    /**
+     * Constructor sin parametros instancia una lista 
+     */
+    public ZonaParque (){
+        
+        this.listaAtracciones = new ArrayList<>();
+        
+    }
+    
+    /**
+     * Añadir un objeto de la clase Atraccion a la lista de objetos
+     * @param atraccion Objreto clase Atraccion.
+     */
+    public void añadirAtraccion(Atraccion atraccion){
+        
+        this.listaAtracciones.add(atraccion);
+        
+    }
+    
+    /**
+     * Elimina una atracción de la lista con objeto Atraccion
+     * @param atraccion bjeto clase Atraccion
+     * @throws ErrorDatos Reenvio de excepcion con mensaje personalizado
+     */
+    public void eliminarAtraccion(Atraccion atraccion) throws ErrorDatos {
+        
+        for (Atraccion puntero: this.listaAtracciones){
+            if (puntero == atraccion){
+                this.listaAtracciones.remove(atraccion);
+            }else{
+                throw new ErrorDatos("El objeto no esta en la lista");
+            }
+
+        }
+        
+    }
+            
+    /**
+     * Obten una atraccion de la lista con el nombre solicitado.
+     * @param nombre nombre (String) de la atraccion solicitada.
+     * @return un objeto de la clase Atraccion.
+     * @throws ErrorDatos Reenvio de excepcion con mensaje personalizado
+     */        
+    public Atraccion obtenerAtracciones(String nombre) throws ErrorDatos {
+        
+        for (Atraccion puntero: this.listaAtracciones){
+            if ( puntero.getNombre() == nombre){
+                return puntero;
+            }else{
+                throw new ErrorDatos("El objeto no esta en la lista");
+            }
+
+        }
+        
+        return null;
+        
+    }        
+
+
+
 }
