@@ -1,3 +1,7 @@
+
+import java.time.LocalDateTime;
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -17,8 +21,9 @@
 public abstract class Atraccion implements Mantenible{
 
     private String nombre;
-    private int capacidadMaxima, tiempoRecorrido, nivelAdrenalina;
-    boolean funcionando;
+    private int capacidadMaxima;
+    private int tiempoRecorrido;
+    private int nivelAdrenalina;
     
     /**
      * Constructro clase abstracta
@@ -109,19 +114,31 @@ public abstract class Atraccion implements Mantenible{
         this.nivelAdrenalina = nivelAdrenalina;
     }
    
-    
+    /**
+     * Calcular precio: entrega el precio de este tipo de atracciones.
+     * @return precio en € (double)
+     * @throws ErrorDatos 
+     */
     public abstract double calculaPrecio() throws ErrorDatos;
 
+    /**
+     * Realizar Mantenimiento, método para indicar la realización del mantenimiento a la atracción.
+     */
     public abstract void realizarMantenimiento();
     
     
-
+    /**
+     * Imprime mensage log de inicio de la atracción
+     */
     public void iniciarAtraccion(){
-        this.funcionando = true;
+        System.out.println(String.format("La atracción %s.\niniciada en %s", this.nombre, LocalDateTime.now()));
     }
     
+    /**
+     * Imprime mensage log de parada de la atracción
+     */
     public void detenerAtraccion(){    
-        this.funcionando = false;
+        System.out.printf("La atracción %s.\ndetenida en %s\n", this.nombre, LocalDateTime.now());
     }
     
     
