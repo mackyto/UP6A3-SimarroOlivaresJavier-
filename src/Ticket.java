@@ -134,14 +134,7 @@ public class Ticket {
             this.tipoEntrada = tipoEntrada;
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
     /**
      * aplica un descuento del 15%

@@ -137,7 +137,7 @@ public class Empleado {
      * @return booleana true, si el formato se ajusta a los requisitos del dni
      * @throws ErrorDatos enviando mensaje personalizado
      */
-    public boolean matchDNI(String dni, String mensaje) throws ErrorDatos{
+    public static boolean matchDNI(String dni, String mensaje) throws ErrorDatos{
         if (dni.matches("[0-9]{8}[A-Z]")){
             return true;
         }else{throw new ErrorDatos(mensaje);}

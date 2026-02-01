@@ -39,6 +39,26 @@ public class ZonaParque {
         this.listaAtracciones = new ArrayList<>();
         
     }
+
+    /**
+     * Getter Listy<> extrae la lista
+     * @return listaAtracciones 
+     */
+    public List<Atraccion> getListaAtracciones() {
+        return listaAtracciones;
+    }
+
+    /**
+     * Setter listaAtracciones
+     * @param listaAtracciones ArrrayList<> 
+     */
+    public void setListaAtracciones(List<Atraccion> listaAtracciones) {
+        this.listaAtracciones = listaAtracciones;
+    }
+    
+    
+    
+    
     
     /**
      * Añadir un objeto de la clase Atraccion a la lista de objetos
