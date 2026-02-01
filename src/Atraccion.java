@@ -35,13 +35,17 @@ public abstract class Atraccion implements Mantenible{
     public Atraccion(String nombre, int capacidadMaxima,int tiempoRecorrido,int nivelAdrenalina) throws ErrorDatos {
         
         if (this.stringNoNulo(nombre))
-            this.capacidadMaxima=capacidadMaxima;    
+            this.nombre=nombre;
+        
         if (this.enteroPositivo(capacidadMaxima))
             this.capacidadMaxima=capacidadMaxima;
+        
         if (this.enteroPositivo(tiempoRecorrido))
             this.tiempoRecorrido = tiempoRecorrido;
+        
         if (this.enteroPositivo(nivelAdrenalina))
-            this.capacidadMaxima=capacidadMaxima;        
+            this.nivelAdrenalina=nivelAdrenalina;        
+    
     }
 
     /**
@@ -94,7 +98,8 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos reenvio de mensaje personalizado.
      */
     public void setTiempoRecorrido(int tiempoRecorrido) throws ErrorDatos {
-        this.tiempoRecorrido = tiempoRecorrido;
+        if (this.enteroPositivo(tiempoRecorrido))
+            this.tiempoRecorrido = tiempoRecorrido;
     }
 
     /**
@@ -111,7 +116,8 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos reenvio de mensaje personalizado.
      */
     public void setNivelAdrenalina(int nivelAdrenalina) throws ErrorDatos {
-        this.nivelAdrenalina = nivelAdrenalina;
+        if (this.enteroPositivo(nivelAdrenalina))
+            this.nivelAdrenalina=nivelAdrenalina; 
     }
    
     /**
