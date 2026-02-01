@@ -26,6 +26,9 @@ public class Ticket {
     public Ticket (String codigo, LocalDate fecha, double precio, String tipoEntrada) {
         
         if (Atraccion.stringNoNulo(codigo, "El código de Ticketno es un campo nulo"))
+            this.codigo = codigo;
+        this.fecha = LocalDate.now();
+        if (Atraccion.enteroPositivo(precio, codigo))
     
     
     

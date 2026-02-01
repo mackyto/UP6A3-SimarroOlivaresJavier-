@@ -154,15 +154,19 @@ public abstract class Atraccion implements Mantenible{
         
     }
 
+    
+    
         /**
      * Comprovación de parametros numero decimal positivo.
      * @param valor Númeroa a ser chequeado.
      * @return boleana true si cumple los requisitos.
      * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
      */
-    public boolean enteroPositivo(double valor) throws ErrorDatos {
-        return this.enteroPositivo(valor, "Valor decimal, cero o negativo");
+    public boolean decimalPositivo(double valor) throws ErrorDatos {
+        return this.decimalPositivo(valor, "Valor decimal, cero o negativo");
     }
+    
+    
     
     /**
      * Comprobación de cadena no nula ni vacía.
@@ -175,6 +179,8 @@ public abstract class Atraccion implements Mantenible{
        
     }
 
+    
+    
         /**
      * Comprovación de parametros numero entero positivo, sobrecargado.
      * @param valor Númeroa a ser chequeado.
@@ -190,6 +196,8 @@ public abstract class Atraccion implements Mantenible{
         }
     }
 
+    
+    
         /**
      * Comprovación de parametros numero decimal positivo, sobrecargado.
      * @param valor Númeroa a ser chequeado.
@@ -197,13 +205,15 @@ public abstract class Atraccion implements Mantenible{
      * @return boleana true si cumple los requisitos.
      * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
      */
-    public static boolean enteroPositivo(double valor, String mensaje) throws ErrorDatos {
+    public static boolean decimalPositivo(double valor, String mensaje) throws ErrorDatos {
         if (valor > 0){
             return true;
         }else{
             throw new ErrorDatos("Valor decimal cero o negativo"); 
         }
     }
+    
+    
     
     /**
      * Comprobación de cadena no nula, ni vacía sobrecargada.
