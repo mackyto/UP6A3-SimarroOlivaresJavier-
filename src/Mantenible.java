@@ -14,8 +14,14 @@
 
 public interface Mantenible {
     
+    /**
+     * Método revisarIntegridad
+     */
     public void revisarSeguridad();
     
+    /**
+     * Método registrarIncidencia.
+     */
     public void registrarIncidencia(String incidencia);
     
 }

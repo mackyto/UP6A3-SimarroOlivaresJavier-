@@ -41,6 +41,40 @@ public class MontañaRusa extends Atraccion implements Mantenible {
             this.longitudRecorrido = longitudRecorrido;
         
     }
+
+    
+    /**
+     * Getter alturaMaxima double en metros
+     * @return alturaMaxima double
+     */
+    public double getAlturaMaxima() {
+        return alturaMaxima;
+    }
+
+    /**
+     * Setter alturaMaxima para usar la montaña rusa
+     * @param alturaMaxima 
+     */
+    public void setAlturaMaxima(double alturaMaxima) {
+        this.alturaMaxima = alturaMaxima;
+    }
+
+    /**
+     * Getter longitudRecorrido double en metros.
+     * @return longitudRecorrido.
+     */
+    public double getLongitudRecorrido() {
+        return longitudRecorrido;
+    }
+
+    /**
+     * Setter longitudRecorrido
+     * @param longitudRecorrido 
+     */
+    public void setLongitudRecorrido(double longitudRecorrido) {
+        this.longitudRecorrido = longitudRecorrido;
+    }
+    
     
     /**
      * Devuelve el precio del ticket para este tipode atración
@@ -66,6 +100,7 @@ public class MontañaRusa extends Atraccion implements Mantenible {
             throw new ErrorDatos("Parametro temporadaAlta erroneo o false");
         }
     }
+    
     /**
      * realizarMantenimiento indica que se ha rrealizado el mantenimiento.
      * Lanzamiento del mensaje de log 'Se ha realizado el mantenimiento, a esta atracción, hoy.

@@ -44,7 +44,7 @@ public class Empleado {
             this.nombre = nombre;
         
         if (Atraccion.stringNoNulo(puesto, "Puesto del Empleado nulo o vacío"))
-            this.nombre = nombre;
+            this.puesto = puesto;
         
         if (Atraccion.enteroPositivo(antiguedad, "Valor negativo en antiguedad del Empleado"))
             this.antiguedad = antiguedad;        
@@ -83,8 +83,9 @@ public class Empleado {
      * Setter nombre
      * @param nombre String con el nombre del empleado. 
      */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombre) throws ErrorDatos {
+        if (Atraccion.stringNoNulo(nombre, "Nombre del Empleado nulo o vacío"))
+            this.nombre = nombre;
     }
 
     /**
@@ -99,8 +100,9 @@ public class Empleado {
      * Setter puesto String 
      * @param puesto String nombre del puesto de trabajo.
      */
-    public void setPuesto(String puesto) {
-        this.puesto = puesto;
+    public void setPuesto(String puesto) throws ErrorDatos {
+        if (Atraccion.stringNoNulo(puesto, "Puesto del Empleado nulo o vacío"))
+            this.puesto = puesto;
     }
 
     /**
@@ -115,8 +117,9 @@ public class Empleado {
      * Setter antiguedad 
      * @param antiguedad int, modifica la antiguadad de un empleado
      */
-    public void setAntiguedad(int antiguedad) {
-        this.antiguedad = antiguedad;
+    public void setAntiguedad(int antiguedad) throws ErrorDatos {
+        if (Atraccion.enteroPositivo(antiguedad, "Valor negativo en antiguedad del Empleado"))
+            this.antiguedad = antiguedad; 
     }
     
     /** 
