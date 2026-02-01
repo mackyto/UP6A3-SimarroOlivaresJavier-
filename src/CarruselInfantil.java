@@ -38,11 +38,19 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
             this.numeroFiguras = numeroFiguras;
 
     }
-
+    
+    /**
+     * Getter edadMaxima edad maxima recomendada para la atraccion
+     * @return int entero
+     */
     public int getEdadMaxima() {
         return edadMaxima;
     }
 
+    /**
+     * Setter edadMaxima
+     * @param edadMaxima entero  
+     */
     public void setEdadMaxima(int edadMaxima) {
         this.edadMaxima = edadMaxima;
     }

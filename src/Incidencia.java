@@ -25,6 +25,13 @@ public class Incidencia {
     private String estado;
     private static int contador = 1000;
     
+    /**
+     * Constructor Incidencia 
+     * @param descripcion
+     * @param atraccionAfectada
+     * @param estado
+     * @throws ErrorDatos 
+     */
     public Incidencia(String descripcion, Atraccion atraccionAfectada, String estado) throws ErrorDatos {
     
         this.id = contador++;

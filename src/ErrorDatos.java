@@ -9,8 +9,8 @@
  */
 public class ErrorDatos extends Exception {
     
-    public ErrorDatos(String mensaje){
-        super(mensaje);
+    public ErrorDatos(String mensaje) {
+            super(mensaje);
     }
     
 }
