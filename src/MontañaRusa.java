@@ -35,9 +35,9 @@ public class MontañaRusa extends Atraccion implements Mantenible {
     
         super(nombre, capacidadMaxima, tiempoRecorrido, nivelAdrenalina);
             
-        if (super.enteroPositivo(alturaMaxima))
+        if (super.decimalPositivo(alturaMaxima))
             this.alturaMaxima = alturaMaxima;
-        if(super.enteroPositivo(longitudRecorrido))
+        if(super.decimalPositivo(longitudRecorrido))
             this.longitudRecorrido = longitudRecorrido;
         
     }
