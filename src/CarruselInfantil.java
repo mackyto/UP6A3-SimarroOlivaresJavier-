@@ -52,7 +52,7 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
      * @param edadMaxima entero  
      */
     public void setEdadMaxima(int edadMaxima) throws ErrorDatos {
-        if(super.enteroPositivo(edadMaxima))
+        if(super.enteroPositivo(edadMaxima, "Edad máxima de la atracción negativa"))
             this.edadMaxima = edadMaxima;
     }
 
@@ -69,7 +69,7 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
      * @param numeroFiguras 
      */
     public void setNumeroFiguras(int numeroFiguras) throws ErrorDatos {
-        if(super.enteroPositivo(numeroFiguras))
+        if(super.enteroPositivo(numeroFiguras,  "Número de firuras máxima de la atracción negativa"))
             this.numeroFiguras = numeroFiguras;
     }    
     

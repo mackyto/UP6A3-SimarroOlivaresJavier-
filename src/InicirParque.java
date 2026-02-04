@@ -78,7 +78,7 @@ public class InicirParque {
             
             zona.add( new ZonaParque(zonas[2-i]));
             
-            System.out.println("Creada zona " + i + " " + zona.getLast().getNombre());
+//            System.out.println("Creada zona " + i + " " + zona.getLast().getNombre());
             
             switch (i) {
                 

@@ -44,10 +44,10 @@ public abstract class Atraccion implements Mantenible{
         if (this.enteroPositivo(capacidadMaxima, "Capacidad máxima de la atracción negativa"))
             this.capacidadMaxima=capacidadMaxima;
         
-        if (this.enteroPositivo(tiempoRecorrido,"Tiempo de recorrido en segundos negativo"))
+        if (this.enteroPositivo(tiempoRecorrido, "Tiempo de recorrido en segundos negativo"))
             this.tiempoRecorrido = tiempoRecorrido;
         
-        if (this.enteroPositivo(nivelAdrenalina,"Nivel de adrenalina de la atracción negativo"))
+        if (this.enteroPositivo(nivelAdrenalina, "Nivel de adrenalina de la atracción negativo"))
             this.nivelAdrenalina=nivelAdrenalina;
         
         incidencias = new ArrayList<>();
@@ -68,7 +68,7 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos reenvio de mensaje personalizado.
      */
     public void setNombre(String nombre) throws ErrorDatos {
-        if (this.stringNoNulo(nombre))
+        if (this.stringNoNulo(nombre, "Nombre de la atracción nulo o vacia"))
         this.nombre = nombre;
     }
 
@@ -86,7 +86,7 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos reenvio de mensaje personalizado.
      */
     public void setCapacidadMaxima(int capacidadMaxima) throws ErrorDatos {
-        if (this.enteroPositivo(nivelAdrenalina))
+        if (this.enteroPositivo(this.capacidadMaxima, "Capacidad máxima de la atracción negativa"))
         this.capacidadMaxima = capacidadMaxima;
     }
 
@@ -104,7 +104,7 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos reenvio de mensaje personalizado.
      */
     public void setTiempoRecorrido(int tiempoRecorrido) throws ErrorDatos {
-        if (this.enteroPositivo(tiempoRecorrido))
+        if (this.enteroPositivo(tiempoRecorrido, "Tiempo de recorrido en segundos negativo"))
             this.tiempoRecorrido = tiempoRecorrido;
     }
 
@@ -122,7 +122,7 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos reenvio de mensaje personalizado.
      */
     public void setNivelAdrenalina(int nivelAdrenalina) throws ErrorDatos {
-        if (this.enteroPositivo(nivelAdrenalina))
+        if (this.enteroPositivo(nivelAdrenalina, "Nivel de adrenalina de la atracción negativo"))
             this.nivelAdrenalina=nivelAdrenalina; 
     }
 
@@ -142,6 +142,10 @@ public abstract class Atraccion implements Mantenible{
         this.incidencias = incidencias;
     }
    
+    /**
+     * Añade una incidencia a la lista.
+     * @param inci
+     */
     public void añadirIncidencia (Incidencia inci){
         this.incidencias.add(inci);
     } 
@@ -176,48 +180,9 @@ public abstract class Atraccion implements Mantenible{
     public void detenerAtraccion(){    
         System.out.printf("La atracción %s.\ndetenida en %s\n", this.nombre, LocalDateTime.now());
     }
-    
-    
-    /**
-     * Comprovación de parametros numero entero positivo.
-     * @param valor Númeroa a ser chequeado.
-     * @return boleana true si cumple los requisitos.
-     * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
-     */
-    public boolean enteroPositivo(int valor) throws ErrorDatos {
-
-        return this.enteroPositivo(valor, "Valor entero, cero o negativo");
-        
-    }
 
     
-    
-        /**
-     * Comprovación de parametros numero decimal positivo.
-     * @param valor Númeroa a ser chequeado.
-     * @return boleana true si cumple los requisitos.
-     * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
-     */
-    public boolean decimalPositivo(double valor) throws ErrorDatos {
-        return this.decimalPositivo(valor, "Valor decimal, cero o negativo");
-    }
-    
-    
-    
-    /**
-     * Comprobación de cadena no nula ni vacía.
-     * @param texto cadena de texto a ser verificada. 
-     * @return boleana si cumple los requisitos.
-     * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
-     */
-    public boolean stringNoNulo(String texto) throws ErrorDatos {
-        return this.stringNoNulo(texto, "Valor de cadena nulo o xxx vacío");
-       
-    }
-
-    
-    
-        /**
+     /**
      * Comprovación de parametros numero entero positivo, sobrecargado.
      * @param valor Númeroa a ser chequeado.
      * @param mensaje mensaje a devolver a la clase Exception (ErrorDatos).
@@ -233,8 +198,7 @@ public abstract class Atraccion implements Mantenible{
     }
 
     
-    
-        /**
+     /**
      * Comprovación de parametros numero decimal positivo, sobrecargado.
      * @param valor Númeroa a ser chequeado.
      * @param mensaje mensaje a devolver a la clase Exception (ErrorDatos).
@@ -248,8 +212,7 @@ public abstract class Atraccion implements Mantenible{
             throw new ErrorDatos(mensaje); 
         }
     }
-    
-    
+
     
     /**
      * Comprobación de cadena no nula, ni vacía sobrecargada.
@@ -259,12 +222,13 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
      */
     public static boolean stringNoNulo(String texto, String mensaje) throws ErrorDatos {
-        if (texto == null || texto.isEmpty()){
+
+        if (texto != null && !texto.isEmpty()){
             return true;
         }else{
-            System.out.println(texto);
             throw new ErrorDatos(mensaje); 
         }        
+
     }
     
 }

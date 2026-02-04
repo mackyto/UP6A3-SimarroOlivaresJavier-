@@ -31,13 +31,13 @@ public class MontañaRusa extends Atraccion implements Mantenible {
      * @param nivelAdrenalina Parametro de superclase nivelAdrenalina
      * @throws ErrorDatos 
      */
-    public MontañaRusa (double alturaMaxima, double longitudRecorrido, String nombre, int capacidadMaxima,int tiempoRecorrido,int nivelAdrenalina) throws ErrorDatos{
+    public MontañaRusa (double alturaMaxima, double longitudRecorrido, String nombre, int capacidadMaxima,int tiempoRecorrido,int nivelAdrenalina) throws ErrorDatos {
     
         super(nombre, capacidadMaxima, tiempoRecorrido, nivelAdrenalina);
             
-        if (super.decimalPositivo(alturaMaxima))
+        if (super.decimalPositivo(alturaMaxima, "La Altura máxima de la atracción es un número negativo."))
             this.alturaMaxima = alturaMaxima;
-        if(super.decimalPositivo(longitudRecorrido))
+        if(super.decimalPositivo(longitudRecorrido, "La longitud del recorrido es negativa."))
             this.longitudRecorrido = longitudRecorrido;
         
     }
@@ -55,8 +55,9 @@ public class MontañaRusa extends Atraccion implements Mantenible {
      * Setter alturaMaxima para usar la montaña rusa
      * @param alturaMaxima 
      */
-    public void setAlturaMaxima(double alturaMaxima) {
-        this.alturaMaxima = alturaMaxima;
+    public void setAlturaMaxima(double alturaMaxima) throws ErrorDatos {
+        if (super.decimalPositivo(alturaMaxima, "La Altura máxima de la atracción es un número negativo."))
+            this.alturaMaxima = alturaMaxima;
     }
 
     /**
@@ -71,8 +72,9 @@ public class MontañaRusa extends Atraccion implements Mantenible {
      * Setter longitudRecorrido
      * @param longitudRecorrido 
      */
-    public void setLongitudRecorrido(double longitudRecorrido) {
-        this.longitudRecorrido = longitudRecorrido;
+    public void setLongitudRecorrido(double longitudRecorrido) throws ErrorDatos {
+        if(super.decimalPositivo(longitudRecorrido, "La longitud del recorrido es negativa."))
+            this.longitudRecorrido = longitudRecorrido;
     }
     
     
