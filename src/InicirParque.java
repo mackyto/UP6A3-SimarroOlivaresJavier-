@@ -50,7 +50,7 @@ public class InicirParque {
 
     public static ParqueAtracciones InicirParque () throws ErrorDatos{
         
-        System.out.println("Comienzo de parque");
+//        System.out.println("Comienzo de parque");
         
         List<Empleado> personal = new ArrayList<>();
         
@@ -70,16 +70,14 @@ public class InicirParque {
             
         }
         
-        //System.out.println ("Creada lista de empleados");
-        
+     
         List<ZonaParque> zona = new ArrayList<>();
         
         for (int i = 0; i > 3; i++){
             
             zona.add( new ZonaParque(zonas[2-i]));
             
-//            System.out.println("Creada zona " + i + " " + zona.getLast().getNombre());
-            
+           
             switch (i) {
                 
                 case 0:
