@@ -73,7 +73,7 @@ public class InicirParque {
      
         List<ZonaParque> zona = new ArrayList<>();
         
-        for (int i = 0; i > 3; i++){
+        for (int i = 0; i < 3; i++){
             
             zona.add( new ZonaParque(zonas[2-i]));
             
@@ -82,12 +82,12 @@ public class InicirParque {
                 
                 case 0:
                     zona.getLast().añadirAtraccion(new CarruselInfantil(
-                    Integer.parseInt(infantil[3][0]),
-                    Integer.parseInt(infantil[3][1]),
-                    infantil[3][2],
-                    Integer.parseInt(infantil[3][3]),
-                    Integer.parseInt(infantil[3][4]),
-                    Integer.parseInt(infantil[3][5])
+                    Integer.parseInt(infantil[2][0]),
+                    Integer.parseInt(infantil[2][1]),
+                    infantil[2][2],
+                    Integer.parseInt(infantil[2][3]),
+                    Integer.parseInt(infantil[2][4]),
+                    Integer.parseInt(infantil[2][5])
                     ));break;
                 
                 case 1:

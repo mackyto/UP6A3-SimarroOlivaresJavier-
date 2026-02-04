@@ -166,7 +166,11 @@ public class ParqueAtracciones {
     }
     
     
-    
+    /**
+     * Crea unba incidencia y la añade a la lista de la atraccion
+     * @param parque ParqueAtracciones en donde esta la lista de zonas con lista de atracciones con lista de incidencias.
+     * @throws ErrorDatos 
+     */
     public static void gestionarIncidencia(ParqueAtracciones parque) throws ErrorDatos{
         
         Scanner kl = new Scanner(System.in);
@@ -179,7 +183,16 @@ public class ParqueAtracciones {
         System.out.println("Selecciona una atracción: ");
         int atraccion = kl.nextInt();
         Atraccion.enteroPositivo(atraccion, "El indice es negativo");
+        // Atraccion de la averia o incidencia
         Atraccion attrac = ParqueAtracciones.seleccionarAtraccion(parque.listaZonas, atraccion);
+
+        System.out.println("Selecciona Estado: ");
+        // Estado de la averia Resuelto, pendiente, cuarentena...
+        String estado = kl.nextLine();
+        Atraccion.stringNoNulo(descripcion, "Estado de la incidencia nulo o vacío");        
+        
+        
+//        Incidencia(String descripcion, Atraccion atraccionAfectada, String estado, Empleado empleado)
         
     }
     
@@ -188,6 +201,11 @@ public class ParqueAtracciones {
      * @param lista Lista de ZonaParque parametro de entrada para forzar static metod.
      */
     public static void imprimirNombreAtracciones(List<ZonaParque> lista){
+        
+        if (lista == null || lista.isEmpty()) {
+            System.out.println("No hay zonas en el parque");
+            return;
+        }
         
         int indice = 1;
         System.out.println("Lista de Atracciones por Zona");
@@ -201,11 +219,13 @@ public class ParqueAtracciones {
             for (Atraccion a: zon.getListaAtracciones()){
                 System.out.println((indice++) + " atraccion: " + a.getNombre()); 
             }
-    
+
+            System.out.println("-----------------------------");
+            System.out.println();
+            System.out.println();            
+
         }
            
-        
-//        Incidencia(String descripcion, Atraccion atraccionAfectada, String estado, Empleado empleado)
         
     }
     
