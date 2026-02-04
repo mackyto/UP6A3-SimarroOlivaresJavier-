@@ -175,5 +175,61 @@ public class Empleado {
         
     }
     
-            
+    /**
+     * Imprime lista de Empleados 
+     * @param parque ParqueAtracciones donde esta la lista de empleados.
+     */
+    public static void imprimirEmpleados(ParqueAtracciones parque){
+        
+        for (Empleado emple: parque.getListaEmpleados()){
+            System.out.println("-------------------------------");
+            System.out.println(emple.nombre);
+            System.out.println(emple.dni);            
+            System.out.println(emple.puesto);              
+            System.out.println("Antiguedad: " + emple.antiguedad + " años");            
+            System.out.println("-------------------------------");
+        
+        }
+    
+    }  
+    
+    
+        /**
+     * Imprime lista con los nombres de los Empleados 
+     * @param parque ParqueAtracciones donde esta la lista de empleados.
+     */
+    public static void imprimirNombreEmpleados(ParqueAtracciones parque){
+        
+        int indice = 1;
+        System.out.println("Lista de empleados");
+        System.out.println("-------------------------------");
+        
+        for (Empleado emple: parque.getListaEmpleados()){
+
+            System.out.println((indice++) + " - "+ emple.nombre);
+        
+        }
+        
+        System.out.println("-------------------------------");    
+    
+    } 
+    
+    public static Empleado seleccionarEmpleado (ParqueAtracciones parque,int indice){
+        return parque.getListaEmpleados().get(indice -1);
+    }
+    
+    
+    public static void ImprimirDatosEmpleado(Empleado emple){
+        
+        System.out.println("-------------------------------");
+        System.out.println(emple.nombre);
+        System.out.println(emple.dni);            
+        System.out.println(emple.puesto);              
+        System.out.println("Antiguedad: " + emple.antiguedad + " años");            
+        System.out.println("-------------------------------");        
+        
+    }
+    
+    
+    
 }

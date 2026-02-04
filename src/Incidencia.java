@@ -40,7 +40,7 @@ public class Incidencia {
     
         this.id = contador++;
         
-        if(Atraccion.stringNoNulo(descripcion, "Error descrpcion de la incidencia nula"))
+        if(Atraccion.stringNoNulo(descripcion, "Error descripcion de la incidencia nula"))
             this.descripcion = descripcion;
     
         this.fechaHora = LocalDateTime.now(); 
@@ -48,16 +48,14 @@ public class Incidencia {
         if(this.AtraccionNoNula(atraccionAfectada))
             this.atraccionAfectada = atraccionAfectada;
        
-        if(Atraccion.stringNoNulo(estado, "Error valor de la varriable estado nula"))
+        if(Atraccion.stringNoNulo(estado, "Error valor de la variable estado nula"))
             this.estado = estado;
 
         this.resuelto = false;
         
         this.empleado = empleado;
-        
-        if(this.AtraccionNoNula(atraccionAfectada))
-            this.atraccionAfectada = atraccionAfectada;
-            atraccionAfectada.añadirIncidencia(this);
+       
+        atraccionAfectada.añadirIncidencia(this);
                 
     }
 
@@ -190,7 +188,7 @@ public class Incidencia {
      */
     public boolean AtraccionNoNula(Atraccion a) throws ErrorDatos {
         
-        if (a == null){
+        if (a != null){
             return true;
         }else{
             throw new ErrorDatos("Objeto Atracción nulo");
@@ -201,11 +199,12 @@ public class Incidencia {
 
     /**
      * Método resolver incidencia
-     * cambia el estado a resuelto e imprime log
+     * cambia el estado a resuelto, el estado a resuelto e imprime log
      */
     public void resolverIncidencia(){
 
-        resuelto = true;
+        this.resuelto = true;
+        this.estado = "Resuelto";
         System.out.println("La incidencia esta resuelta");
     
     }
@@ -217,6 +216,5 @@ public class Incidencia {
     public void asignarTecnico(Empleado e){
         this.empleado = e;
     }
-
 
 }

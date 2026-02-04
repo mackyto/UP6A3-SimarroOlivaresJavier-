@@ -176,6 +176,7 @@ public class ParqueAtracciones {
         Scanner kl = new Scanner(System.in);
         
         System.out.println("Describe la incidencia: ");
+        // Descripcion de la incidencia primer parametro de entrada
         String descripcion = kl.nextLine();
         Atraccion.stringNoNulo(descripcion, "Descripción de la incidencia nula o vacía");
         
@@ -183,13 +184,21 @@ public class ParqueAtracciones {
         System.out.println("Selecciona una atracción: ");
         int atraccion = kl.nextInt();
         Atraccion.enteroPositivo(atraccion, "El indice es negativo");
-        // Atraccion de la averia o incidencia
-        Atraccion attrac = ParqueAtracciones.seleccionarAtraccion(parque.listaZonas, atraccion);
+        // Atraccion de la averia o incidencia segundo parametro de entrada
+        Atraccion atraccionAfectada = ParqueAtracciones.seleccionarAtraccion(parque.listaZonas, atraccion);
 
         System.out.println("Selecciona Estado: ");
-        // Estado de la averia Resuelto, pendiente, cuarentena...
+        // Estado de la averia Resuelto, pendiente, cuarentena... tercer parametro de entrada
         String estado = kl.nextLine();
-        Atraccion.stringNoNulo(descripcion, "Estado de la incidencia nulo o vacío");        
+        Atraccion.stringNoNulo(descripcion, "Estado de la incidencia nulo o vacío");
+        
+        Empleado.imprimirNombreEmpleados(parque);
+        System.out.println("Selecciona Empleado: ");
+        int opcion = kl.nextInt();
+        // Empleado assignado a la incidencia cuarto parametro de entrada
+        Empleado empleado = Empleado.seleccionarEmpleado(parque, opcion);
+        
+        Incidencia inc = new Incidencia(descripcion, atraccionAfectada, estado, empleado);
         
         
 //        Incidencia(String descripcion, Atraccion atraccionAfectada, String estado, Empleado empleado)

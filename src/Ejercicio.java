@@ -35,7 +35,12 @@ public class Ejercicio  {
                         
                         case 1: ParqueAtracciones.gestionarIncidencia(parque);break;
                         
-                        case 2: System.out.println("Opcion no implementada");break;
+                        case 2: ParqueAtracciones.imprimirNombreAtracciones(parque.getListaZonas());
+                            System.out.println("Selecciona Atracción");
+                            int indiceAtraccion = Integer.parseInt(kl.nextLine());
+                            Atraccion atraccion = ParqueAtracciones.seleccionarAtraccion(parque.getListaZonas(), indiceAtraccion);
+                            Atraccion.imrimirIncidencias(atraccion);
+                            break;
 
                         case 3: System.out.println("Opcion no implementada");break;
                                 

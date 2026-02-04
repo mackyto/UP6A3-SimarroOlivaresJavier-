@@ -231,4 +231,24 @@ public abstract class Atraccion implements Mantenible{
 
     }
     
+    
+    public static void imrimirIncidencias (Atraccion atraccion){
+
+        System.out.println("Incidencias");        
+        
+        for (Incidencia incidencia: atraccion.getIncidencias()){
+            System.out.println("-------------------------------");
+            System.out.println(incidencia.getId());
+            System.out.println(incidencia.getDescripcion());
+            System.out.println(incidencia.getAtraccionAfectada().nombre);            
+            System.out.println(incidencia.getEstado());              
+            System.out.println(incidencia.getEmpleado());            
+            System.out.println("-------------------------------");
+        
+        }        
+        
+        
+    }
+    
+    
 }
