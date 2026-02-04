@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class InicirParque {
     
-private static String[][] empleados = {
+    private static String[][] empleados = {
     // {dni, nombre, puesto, antiguedad}
     {"12345678A", "María López García", "Desarrollador Senior", "5"},
     {"87654321B", "Carlos Ruiz Martín", "Analista de Datos", "3"},
