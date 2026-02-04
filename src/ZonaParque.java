@@ -121,7 +121,7 @@ public class ZonaParque {
     public Atraccion obtenerAtracciones(String nombre) throws ErrorDatos {
         
         for (Atraccion puntero: this.listaAtracciones){
-            if ( puntero.getNombre() == nombre){
+            if (puntero.getNombre() == nombre){
                 return puntero;
             }else{
                 throw new ErrorDatos("El objeto no esta en la lista");

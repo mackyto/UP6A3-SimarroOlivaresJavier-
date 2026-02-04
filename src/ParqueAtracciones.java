@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -145,11 +146,72 @@ public class ParqueAtracciones {
     
     
     
-    public void gestionarIncidencia(){
+    public static void gestionarIncidencia(ParqueAtracciones parque) throws ErrorDatos{
+        
+        Scanner kl = new Scanner(System.in);
+        
+        System.out.println("Describe la incidencia: ");
+        String descripcion = kl.nextLine();
+        Atraccion.stringNoNulo(descripcion, "Descripción de la incidencia nula o vacía");
+        
+        imprimirNombreAtracciones(parque.listaZonas);
+        System.out.println("Selecciona una atracción: ");
+        int atraccion = kl.nextInt();
+        Atraccion.enteroPositivo(atraccion, "El indice es negativo");
+        Atraccion attrac = ParqueAtracciones.seleccionarAtraccion(parque.listaZonas, atraccion);
+        
         
         
         
     }
     
+    /**
+     * Imprime el nombre de las atracciones por Zona
+     * @param lista Lista de ZonaParque parametro de entrada para forzar static metod.
+     */
+    public static void imprimirNombreAtracciones(List<ZonaParque> lista){
+        
+        int indice = 1;
+        System.out.println("Lista de Atracciones por Zona");
+        System.out.println("-----------------------------");
+        
+        for (ZonaParque zon: lista){
+            
+            System.out.println("Zona: " + zon.getNombre());
+            System.out.println("-----------------------------");
+            
+            for (Atraccion a: zon.getListaAtracciones()){
+                System.out.println((indice++) + " atraccion: " + a.getNombre()); 
+            }
     
+        }
+           
+        
+        Incidencia(String descripcion, Atraccion atraccionAfectada, String estado, Empleado empleado
+        
+    }
+    
+    
+        /**
+     * Imprime el nombre de las atracciones por Zona
+     * @param lista Lista de ZonaParque parametro de entrada para forzar static metod.
+     */
+    public static Atraccion seleccionarAtraccion(List<ZonaParque> lista, int indice) throws ErrorDatos {
+        
+        int i = 1;
+        
+        for (ZonaParque zon: lista){
+            
+            for (Atraccion a: zon.getListaAtracciones()){
+                if (indice == i++)
+                    return a;
+            }
+    
+        }
+       
+        throw new ErrorDatos("Se ha introducido un indice inválido");
+        
+    }
+    
+
 }

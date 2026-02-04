@@ -23,16 +23,20 @@ public class Incidencia {
     private LocalDateTime fechaHora;
     private Atraccion atraccionAfectada;
     private String estado;
+    private boolean resuelto;
+    private Empleado empleado;
     private static int contador = 1000;
+    
+    
     
     /**
      * Constructor Incidencia 
      * @param descripcion
-     * @param atraccionAfectada
+     * @param atraccionAfectada Atraccion  a la que se va a añadir la incidencia
      * @param estado
      * @throws ErrorDatos 
      */
-    public Incidencia(String descripcion, Atraccion atraccionAfectada, String estado) throws ErrorDatos {
+    public Incidencia(String descripcion, Atraccion atraccionAfectada, String estado, Empleado empleado) throws ErrorDatos {
     
         this.id = contador++;
         
@@ -47,6 +51,14 @@ public class Incidencia {
         if(Atraccion.stringNoNulo(estado, "Error valor de la varriable estado nula"))
             this.estado = estado;
 
+        this.resuelto = false;
+        
+        this.empleado = empleado;
+        
+        if(this.AtraccionNoNula(atraccionAfectada))
+            this.atraccionAfectada = atraccionAfectada;
+            atraccionAfectada.añadirIncidencia(this);
+                
     }
 
     /**
@@ -137,6 +149,38 @@ public class Incidencia {
             this.estado = estado;
     }
 
+    /**
+     * Getter resuelto revisa la resolución de la incidencia.
+     * @return resuelto (boolean)
+     */
+    public boolean isResuelto() {
+        return resuelto;
+    }
+
+    /**
+     * Setter Actualiza la resolución de la incidencia.
+     * @param resuelto (boolean)
+     */
+    public void setResuelto(boolean resuelto) {
+        this.resuelto = resuelto;
+    }
+
+    /**
+     * Getter Empleado revisa el tecnico assignado.
+     * @return empleado objeto Empleado.
+     */
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    /**
+     * Setter empleado reasigna empleado a la incidencia
+     * @param empleado objeto empleado 
+     */
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
     
     /**
      * Prueba si el objeto de la clase Atraccion. 
@@ -153,16 +197,26 @@ public class Incidencia {
         } 
         
     } 
-    
-    
+
+
+    /**
+     * Método resolver incidencia
+     * cambia el estado a resuelto e imprime log
+     */
     public void resolverIncidencia(){
-        System.out.println("");
+
+        resuelto = true;
+        System.out.println("La incidencia esta resuelta");
+    
     }
-            
+
+    /**
+     * Metodo asignar método 
+     * @param e objeto Empleado.
+     */
     public void asignarTecnico(Empleado e){
-        
+        this.empleado = e;
     }
-    
-    
-    
+
+
 }

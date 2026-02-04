@@ -1,5 +1,7 @@
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /*
@@ -24,6 +26,7 @@ public abstract class Atraccion implements Mantenible{
     private int capacidadMaxima;
     private int tiempoRecorrido;
     private int nivelAdrenalina;
+    private List<Incidencia> incidencias;
     
     /**
      * Constructro clase abstracta
@@ -31,6 +34,7 @@ public abstract class Atraccion implements Mantenible{
      * @param capacidadMaxima Número máximo de ocupantes.
      * @param tiempoRecorrido Tiempo delrecorrido en segundos.
      * @param nivelAdrenalina Valor subjetivo de la respuesta personalante la atraccion.
+     * incidencias se inicializa la lista de incidencias
      */
     public Atraccion(String nombre, int capacidadMaxima,int tiempoRecorrido,int nivelAdrenalina) throws ErrorDatos {
         
@@ -44,7 +48,9 @@ public abstract class Atraccion implements Mantenible{
             this.tiempoRecorrido = tiempoRecorrido;
         
         if (this.enteroPositivo(nivelAdrenalina))
-            this.nivelAdrenalina=nivelAdrenalina;        
+            this.nivelAdrenalina=nivelAdrenalina;
+        
+        incidencias = new ArrayList<>();
     
     }
 
@@ -119,7 +125,31 @@ public abstract class Atraccion implements Mantenible{
         if (this.enteroPositivo(nivelAdrenalina))
             this.nivelAdrenalina=nivelAdrenalina; 
     }
+
+    /**
+     * Getter llista de incidencias de la atracción
+     * @return incidencia (List<Incidencias>)
+     */
+    public List<Incidencia> getIncidencias() {
+        return incidencias;
+    }
+
+    /**
+     * Setter Lista de incidencias de lña atracción no añade una incidewncia sino la lista completa.
+     * @param incidencias (List<Incidencias>)
+     */
+    public void setIncidencias(List<Incidencia> incidencias) {
+        this.incidencias = incidencias;
+    }
    
+    public void añadirIncidencia (Incidencia inci){
+        this.incidencias.add(inci);
+    } 
+    
+    
+    
+    
+    
     /**
      * Calcular precio: entrega el precio de este tipo de atracciones.
      * @return precio en € (double)
