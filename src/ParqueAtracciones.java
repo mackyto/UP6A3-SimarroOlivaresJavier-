@@ -35,11 +35,32 @@ public class ParqueAtracciones {
         if (Atraccion.stringNoNulo(nombre, "Error, el nombre del Parque es un campo nulo o vacío."))
             this.nombre = nombre;
         
-        listaZonas = new ArrayList<>();
-        listaEmpleados = new ArrayList<>();
-        listaVisitantes = new ArrayList<>();
+        this.listaZonas = new ArrayList<>();
+        this.listaEmpleados = new ArrayList<>();
+        this.listaVisitantes = new ArrayList<>();
         
     }
+    
+    
+        /**
+     * Constructor con lista de objetos y nombre del parque.
+     * @param nombre del parque.
+     * @param listaZonas zonas del parque.
+     * @param listaEmpleados empleados del parque.
+     * @param listaVisitantes se inicializa en el constructor.
+     * @throws ErrorDatos 
+     */
+    public ParqueAtracciones (String nombre, List<ZonaParque> listaZonas, List<Empleado> listaEmpleados) throws ErrorDatos {
+        
+        if (Atraccion.stringNoNulo(nombre, "Error, el nombre del Parque es un campo nulo o vacío."))
+            this.nombre = nombre;
+        
+        this.listaZonas = listaZonas;
+        this.listaEmpleados = listaEmpleados;
+        this.listaVisitantes = new ArrayList<>();
+        
+    }
+    
     
     /**
      * Constructor con lista de objetos y nombre del parque.
@@ -160,9 +181,6 @@ public class ParqueAtracciones {
         Atraccion.enteroPositivo(atraccion, "El indice es negativo");
         Atraccion attrac = ParqueAtracciones.seleccionarAtraccion(parque.listaZonas, atraccion);
         
-        
-        
-        
     }
     
     /**
@@ -187,7 +205,7 @@ public class ParqueAtracciones {
         }
            
         
-        Incidencia(String descripcion, Atraccion atraccionAfectada, String estado, Empleado empleado
+//        Incidencia(String descripcion, Atraccion atraccionAfectada, String estado, Empleado empleado)
         
     }
     
