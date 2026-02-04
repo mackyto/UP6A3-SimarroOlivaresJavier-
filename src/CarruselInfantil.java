@@ -31,10 +31,10 @@ public class CarruselInfantil extends Atraccion implements Mantenible {
         
         super(nombre, capacidadMaxima, tiempoRecorrido, nivelAdrenalina);
         
-        if(super.enteroPositivo(edadMaxima))
+        if(super.enteroPositivo(edadMaxima, "Edad máxima de la atracción negativa"))
             this.edadMaxima = edadMaxima;
 
-        if(super.enteroPositivo(numeroFiguras))
+        if(super.enteroPositivo(numeroFiguras, "Número de firuras máxima de la atracción negativa"))
             this.numeroFiguras = numeroFiguras;
 
     }

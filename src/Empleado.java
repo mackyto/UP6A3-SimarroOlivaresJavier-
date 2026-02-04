@@ -138,7 +138,8 @@ public class Empleado {
      * @throws ErrorDatos enviando mensaje personalizado
      */
     public static boolean matchDNI(String dni, String mensaje) throws ErrorDatos{
-        if (dni.matches("[0-9]{8}[A-Z]")){
+        if (dni.matches("^[0-9]{8}[A-Z]$")){
+            System.out.println("Din Válido " + dni);
             return true;
         }else{throw new ErrorDatos(mensaje);}
     }

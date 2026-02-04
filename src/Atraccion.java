@@ -38,16 +38,16 @@ public abstract class Atraccion implements Mantenible{
      */
     public Atraccion(String nombre, int capacidadMaxima,int tiempoRecorrido,int nivelAdrenalina) throws ErrorDatos {
         
-        if (this.stringNoNulo(nombre))
+        if (this.stringNoNulo(nombre, "Nombre de la atracción nulo o vacia"))
             this.nombre=nombre;
         
-        if (this.enteroPositivo(capacidadMaxima))
+        if (this.enteroPositivo(capacidadMaxima, "Capacidad máxima de la atracción negativa"))
             this.capacidadMaxima=capacidadMaxima;
         
-        if (this.enteroPositivo(tiempoRecorrido))
+        if (this.enteroPositivo(tiempoRecorrido,"Tiempo de recorrido en segundos negativo"))
             this.tiempoRecorrido = tiempoRecorrido;
         
-        if (this.enteroPositivo(nivelAdrenalina))
+        if (this.enteroPositivo(nivelAdrenalina,"Nivel de adrenalina de la atracción negativo"))
             this.nivelAdrenalina=nivelAdrenalina;
         
         incidencias = new ArrayList<>();
@@ -211,7 +211,7 @@ public abstract class Atraccion implements Mantenible{
      * @throws ErrorDatos Lanza un mensaje de error generico de cadena. 
      */
     public boolean stringNoNulo(String texto) throws ErrorDatos {
-        return this.stringNoNulo(texto, "Valor de cadena nulo o vacío");
+        return this.stringNoNulo(texto, "Valor de cadena nulo o xxx vacío");
        
     }
 
@@ -245,7 +245,7 @@ public abstract class Atraccion implements Mantenible{
         if (valor > 0){
             return true;
         }else{
-            throw new ErrorDatos("Valor decimal cero o negativo"); 
+            throw new ErrorDatos(mensaje); 
         }
     }
     
@@ -262,7 +262,8 @@ public abstract class Atraccion implements Mantenible{
         if (texto == null || texto.isEmpty()){
             return true;
         }else{
-            throw new ErrorDatos("Valor de cadena nulo o vacío"); 
+            System.out.println(texto);
+            throw new ErrorDatos(mensaje); 
         }        
     }
     
