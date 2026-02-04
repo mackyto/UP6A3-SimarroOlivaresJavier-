@@ -51,7 +51,24 @@ public class Ejercicio  {
                                 
                 case 4:  System.out.println("Opcion no implementada");break;
                                 
-                case 5: System.out.println("Opcion no implementada");break;
+                case 5: opcion = imprimirMenuVisitante();
+                    
+                    switch (opcion){
+                        
+                        case 1: System.out.println("Opcion no implementada");break;
+                        
+                        case 2: System.out.println("Indica el dni del visitante");
+                                String visiDNI = kl.nextLine();
+                                Empleado.matchDNI(visiDNI, "El DIN del visitante esta mal formateado");
+                                
+                                
+                                ;break;
+
+                        case 3: System.out.println("Opcion no implementada");break;
+                                
+                    }
+                    
+                    System.out.println("Opcion no implementada");break;
                                 
                 case 6: System.out.println("Opcion no implementada");break;
                                 
@@ -130,7 +147,7 @@ public class Ejercicio  {
         int seleccion;
         try {
             seleccion = Integer.parseInt(kl.nextLine());
-            if (seleccion < 1 || seleccion > 7) {
+            if (seleccion < 1 || seleccion > 3) {
                 throw new ErrorDatos("Selección del menú principal errónea");
             }
         } catch (NumberFormatException e) {
@@ -140,6 +157,31 @@ public class Ejercicio  {
         return seleccion;
     }
     
-    
+            public static int imprimirMenuVisitante () throws ErrorDatos {
+        
+        Scanner kl = new Scanner(System.in);
+        
+        System.out.println("Menu Incidencias: ");
+        System.out.println("-------------------------");
+        System.out.println();
+        System.out.println("1 - Añadir Viistante");
+        System.out.println();
+        System.out.println("2 - Comprar Entrada");
+        System.out.println();
+        System.out.println("3 - Listar Visitantes Diarios");
+        System.out.println();
+  
+        int seleccion;
+        try {
+            seleccion = Integer.parseInt(kl.nextLine());
+            if (seleccion < 1 || seleccion > 3) {
+                throw new ErrorDatos("Selección del menú principal errónea");
+            }
+        } catch (NumberFormatException e) {
+            throw new ErrorDatos("Debe ingresar un número válido");
+        }
+        
+        return seleccion;
+    }
     
 }

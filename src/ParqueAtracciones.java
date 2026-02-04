@@ -260,5 +260,22 @@ public class ParqueAtracciones {
         
     }
     
-
+    
+    public Visitante buscarDniVisitante (String dni) throws ErrorDatos {
+        
+        for (Visitante visi: this.listaVisitantes){
+            if (visi.getDni().equalsIgnoreCase(dni)){
+                return visi;
+            }else{
+                throw new ErrorDatos("El dni no se encuentra entre los visitantes");
+            }
+            
+        }
+        
+        return null;
+        
+    }
+    
+    
+    
 }
