@@ -19,25 +19,49 @@ import java.util.List;
 
 public class ZonaParque {
     
-    List<Atraccion> listaAtracciones;
+    private String nombre;
+    private List<Atraccion> listaAtracciones;
     
     /**
      * Constructor con el parametro lista de atracciones
+     * @param nombre nombre de la zona del parque.
      * @param listaAtracciones 
      */
-    public ZonaParque (List<Atraccion> listaAtracciones){
+    public ZonaParque (Sting nombre, List<Atraccion> listaAtracciones) throws ErrorDatos {
         
+        if (Atraccion.stringNoNulo(nombre, "Error el nombre de la zona del parque es un parametro nulo o vacío"))
+            this.nombre = nombre;
         this.listaAtracciones = listaAtracciones;
         
     }
     
     /**
-     * Constructor sin parametros instancia una lista 
+     * Constructor con solo el nombre e instancia una lista
+     * @param nombre nombre de la zona del parque.
      */
-    public ZonaParque (){
+    public ZonaParque (String nombre){
         
+        if (Atraccion.stringNoNulo(nombre, "Error el nombre de la zona del parque es un parametro nulo o vacío"))
+            this.nombre = nombre;
         this.listaAtracciones = new ArrayList<>();
         
+    }
+
+    /**
+     * Getter nombre (String) de la zona parque.
+     * @return nombre (String) de la zona parque.
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+     /**
+     * Setter nombre (String) de la zona parque.
+     * @param nombre (String) de la zona parque.
+     */
+    public void setNombre(String nombre) throws ErrorDatos {
+        if (Atraccion.stringNoNulo(nombre, "Error el nombre de la zona del parque es un parametro nulo o vacío"))
+            this.nombre = nombre;
     }
 
     /**
