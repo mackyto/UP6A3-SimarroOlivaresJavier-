@@ -27,7 +27,7 @@ public class ZonaParque {
      * @param nombre nombre de la zona del parque.
      * @param listaAtracciones 
      */
-    public ZonaParque (Sting nombre, List<Atraccion> listaAtracciones) throws ErrorDatos {
+    public ZonaParque (String nombre, List<Atraccion> listaAtracciones) throws ErrorDatos {
         
         if (Atraccion.stringNoNulo(nombre, "Error el nombre de la zona del parque es un parametro nulo o vacío"))
             this.nombre = nombre;
@@ -39,7 +39,7 @@ public class ZonaParque {
      * Constructor con solo el nombre e instancia una lista
      * @param nombre nombre de la zona del parque.
      */
-    public ZonaParque (String nombre){
+    public ZonaParque (String nombre) throws ErrorDatos{
         
         if (Atraccion.stringNoNulo(nombre, "Error el nombre de la zona del parque es un parametro nulo o vacío"))
             this.nombre = nombre;

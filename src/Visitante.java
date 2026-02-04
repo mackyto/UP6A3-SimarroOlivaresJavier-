@@ -1,4 +1,5 @@
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +144,7 @@ public class Visitante {
     
     
     /**
-     * Comprar entrada 
+     * Comprar entrada Ajustando texto y precio a la temporada cada ticket sa añade a la lista del vsitante.
      * @throws ErrorDatos 
      */
     public void comprarEntrada() throws ErrorDatos {
@@ -158,13 +159,18 @@ public class Visitante {
     //    if (edad >= 65)
     //        tipoEntrada = "Jubilado";
     
-        if 
-    
-    
+
+        String tipoEntrada = "Precio Reducido";
+        double precio = 2.85;
+        
+        if (temporadaAlta()){
+            tipoEntrada = "Entada Nomal";
+            precio = 3.5;
+        }
         this.entradas.add(new Ticket(
                 String.format("%d", this.codigo++),
                 null,
-                2.35,
+                precio,
                 tipoEntrada));
     
     }
@@ -194,6 +200,19 @@ public class Visitante {
         if (bandera)
             System.out.printf("\nEl visitante %s con (DNI:%s) a subido a la atracción %s a las %s\n\n", this.nombre, this.dni, a.getNombre(), LocalDateTime.now());
         
+    }
+    
+    /**
+     * Método Temporada Alta, se considera temporada alta en Agosto.
+     * @return boolean true si es temporada alta
+     */
+    public static boolean temporadaAlta(){
+        
+        if (LocalDate.now().getMonthValue() == 8)
+            return true;
+            
+        return false;
+            
     }
     
     
